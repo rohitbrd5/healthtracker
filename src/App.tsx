@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   calculateCalories,
   getDailyEntries,
@@ -7,11 +7,13 @@ import {
   sumSteps,
   sumCalories,
   type StepEntry,
-} from './utils/health';
-import { loadEntries, saveEntries } from './services/storage';
-import StepsInput from './components/StepsInput';
-import Summary from './components/Summary';
-import StepsProgressChart, { STEPS_GOAL } from './components/StepsProgressChart';
+} from "./utils/health";
+import { loadEntries, saveEntries } from "./services/storage";
+import StepsInput from "./components/StepsInput";
+import Summary from "./components/Summary";
+import StepsProgressChart, {
+  STEPS_GOAL,
+} from "./components/StepsProgressChart";
 
 const App: React.FC = () => {
   const [entries, setEntries] = useState<StepEntry[]>([]);
@@ -37,6 +39,7 @@ const App: React.FC = () => {
 
   const dailySteps = sumSteps(dailyEntries);
   const dailyCalories = sumCalories(dailyEntries);
+
   const weeklySteps = sumSteps(weeklyEntries);
   const weeklyCalories = sumCalories(weeklyEntries);
 

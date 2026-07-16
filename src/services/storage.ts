@@ -1,6 +1,6 @@
-import type { StepEntry } from '../utils/health';
+import type { StepEntry } from "../utils/health";
 
-const STORAGE_KEY = 'healthTrackerData';
+const STORAGE_KEY = "healthTrackerData";
 
 /** Loads step entries from localStorage. Returns [] on missing/corrupt data. */
 export function loadEntries(): StepEntry[] {

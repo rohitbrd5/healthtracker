@@ -81,5 +81,5 @@ npx vitest run -t "calculateCalories"     # run by test name
 - If they ask "where do I start", point them at `CLAUDE.md` → `health.ts` → `App.tsx`.
 - If they ask "how do I add X", map the change to the right layer (logic in `utils`, persistence in
   `services`, UI in `components`) and explain the minimal touch points — but don't write it unless asked.
-- Keep it practical: a new dev should leave understanding *where code lives, why it's split that way,
-  and how data moves through the app*.
+- Keep it practical: a new dev should leave understanding _where code lives, why it's split that way,
+  and how data moves through the app_.

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Doughnut } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
+import React from "react";
+import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 
 ChartJS.register(ArcElement, Tooltip);
 
@@ -8,16 +8,16 @@ ChartJS.register(ArcElement, Tooltip);
 export const STEPS_GOAL = 5000;
 
 /** Unfilled track color behind the completed portion. */
-const TRACK_COLOR = '#E5E7EB'; // gray-200
+const TRACK_COLOR = "#E5E7EB"; // gray-200
 
 /**
  * Returns the color for the completed doughnut arc based on how many steps
  * have been taken against the daily goal.
  */
 export function getProgressColor(steps: number): string {
-  if (steps >= 5000) return '#22C55E'; // green
-  if (steps >= 2500) return '#EAB308'; // yellow
-  return '#F97316'; // orange
+  if (steps >= 5000) return "#22C55E"; // green
+  if (steps >= 2500) return "#EAB308"; // yellow
+  return "#F97316"; // orange
 }
 
 interface StepsProgressChartProps {
@@ -35,13 +35,13 @@ const StepsProgressChart: React.FC<StepsProgressChartProps> = ({
   const percent = Math.round((completed / goal) * 100);
 
   const data = {
-    labels: ['Completed', 'Remaining'],
+    labels: ["Completed", "Remaining"],
     datasets: [
       {
         data: [completed, remaining],
         backgroundColor: [color, TRACK_COLOR],
         borderWidth: 0,
-        cutout: '75%',
+        cutout: "75%",
       },
     ],
   };
@@ -59,7 +59,9 @@ const StepsProgressChart: React.FC<StepsProgressChartProps> = ({
     <div className="relative w-48 h-48 mx-auto">
       <Doughnut data={data} options={options} />
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-        <span className="text-3xl font-bold text-gray-800">{steps.toLocaleString()}</span>
+        <span className="text-3xl font-bold text-gray-800">
+          {steps.toLocaleString()}
+        </span>
         <span className="text-sm text-gray-500">/ {goal.toLocaleString()}</span>
         <span className="text-xs text-gray-400 mt-1">{percent}%</span>
       </div>
