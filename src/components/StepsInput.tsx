@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface StepsInputProps {
   onAddSteps: (steps: number) => void;
@@ -8,7 +8,7 @@ const StepsInput: React.FC<StepsInputProps> = ({ onAddSteps }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
-    const input = form.elements.namedItem('steps') as HTMLInputElement;
+    const input = form.elements.namedItem("steps") as HTMLInputElement;
     const steps = parseInt(input.value, 10);
 
     if (isNaN(steps) || steps < 0) return;

@@ -18,6 +18,7 @@ npm run test:run   # Vitest, single run (CI-friendly)
 ```
 
 Run a subset of tests:
+
 ```bash
 npx vitest run src/utils/health.test.ts   # by file
 npx vitest run -t "calculateCalories"      # by test name
@@ -38,7 +39,7 @@ Business logic is deliberately split from the UI so it stays unit-testable:
   - `0–2499` steps → Orange `#F97316`
   - `2500–4999` steps → Yellow `#EAB308`
   - `5000+` steps → Green `#22C55E`
-  The remainder is drawn as a gray track (`#E5E7EB`). Register `ArcElement` + `Tooltip` from `chart.js` at module load.
+    The remainder is drawn as a gray track (`#E5E7EB`). Register `ArcElement` + `Tooltip` from `chart.js` at module load.
 - **`src/components/StepsInput.tsx`** — the steps entry form. Calls `onAddSteps(steps: number)` on submit; owns no app state.
 - **`src/components/Summary.tsx`** — presentational daily stat cards (Daily Steps / Calories Burned) and the Weekly Summary card. Receives all values via props.
 

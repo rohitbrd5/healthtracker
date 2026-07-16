@@ -11,8 +11,8 @@ export interface StepEntry {
 /** Returns the local-date key (YYYY-MM-DD) for a given Date (defaults to now). */
 export function getDateKey(date: Date = new Date()): string {
   const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, '0');
-  const d = String(date.getDate()).padStart(2, '0');
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
   return `${y}-${m}-${d}`;
 }
 
@@ -22,7 +22,10 @@ export function calculateCalories(steps: number): number {
 }
 
 /** Filters entries to those matching the given date key. */
-export function getDailyEntries(entries: StepEntry[], dateKey: string = getDateKey()): StepEntry[] {
+export function getDailyEntries(
+  entries: StepEntry[],
+  dateKey: string = getDateKey(),
+): StepEntry[] {
   return entries.filter((e) => e.date === dateKey);
 }
 
@@ -30,7 +33,10 @@ export function getDailyEntries(entries: StepEntry[], dateKey: string = getDateK
  * Returns entries within the trailing 7-day window ending on referenceKey
  * (inclusive of both ends).
  */
-export function getWeeklyEntries(entries: StepEntry[], referenceKey: string = getDateKey()): StepEntry[] {
+export function getWeeklyEntries(
+  entries: StepEntry[],
+  referenceKey: string = getDateKey(),
+): StepEntry[] {
   const ref = new Date(`${referenceKey}T00:00:00`);
   const start = new Date(ref);
   start.setDate(ref.getDate() - 6);
